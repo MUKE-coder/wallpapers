@@ -3,6 +3,45 @@
 A curated collection of HD and 4K wallpapers for developers — code humor, minimalist
 terminal aesthetics, and product shots for the Grit framework.
 
+## Install
+
+One-liner: downloads the wallpapers to `~/Pictures/wallpapers/` and rotates the
+desktop background every **5 minutes**.
+
+### Windows (PowerShell)
+
+```powershell
+irm https://raw.githubusercontent.com/MUKE-coder/wallpapers/main/install.ps1 | iex
+```
+
+Uninstall:
+
+```powershell
+Unregister-ScheduledTask -TaskName WallpaperRotation -Confirm:$false
+```
+
+### macOS / Linux
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/MUKE-coder/wallpapers/main/install.sh | bash
+```
+
+Uninstall — macOS:
+
+```bash
+launchctl unload ~/Library/LaunchAgents/com.mukecoder.wallpapers.plist \
+  && rm ~/Library/LaunchAgents/com.mukecoder.wallpapers.plist
+```
+
+Uninstall — Linux:
+
+```bash
+crontab -l | grep -v rotate-wallpaper.sh | crontab -
+```
+
+Linux rotation supports GNOME (`gsettings`), KDE (`plasma-apply-wallpaperimage`),
+XFCE (`xfconf-query`), and `feh` for tiling WMs.
+
 ## Preview
 
 | Wallpaper | Theme |
